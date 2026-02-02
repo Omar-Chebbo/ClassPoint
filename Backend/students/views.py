@@ -371,3 +371,32 @@ class StudentMultiQuizQuestionsView(APIView):
         from quizzes.serializers import QuizSerializer
         serializer = QuizSerializer(questions, many=True)
         return Response(serializer.data)
+class StudentLoginView(APIView):
+    """
+    Login endpoint for students.
+    POST { "email": "...", "full_name": "..." }
+    → returns token if student exists.
+    """
+    permission_classes = []  # open to all (no auth needed)
+
+    def post(self, request):
+        email = request.data.get('email')
+        full_name = request.data.get('full_name')
+
+        if not email or not full_name:
+            return Response({"error": "Both email and full_name are required."},
+                            status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            student = Student.objects.get(email=email, full_name=full_name)
+        except Student.DoesNotExist:
+            return Response({"error": "Student not found. Contact your teacher to register."},
+                            status=status.HTTP_404_NOT_FOUND)
+
+        token, _ = StudentToken.objects.get_or_create(student=student)
+
+        return Response({
+            "token": token.key,
+            "student_name": student.full_name,
+            "email": student.email
+        }, status=status.HTTP_200_OK)

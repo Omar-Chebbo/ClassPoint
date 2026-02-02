@@ -9,7 +9,7 @@ services:
       - "5432:5432"
   web:
     build: .
-    command: gunicorn classpoint.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn classpoint_backend.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/app
     ports:

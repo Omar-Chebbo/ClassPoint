@@ -1,7 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ClassPointAddIn.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BackendBaseUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://127.0.0.1:8000/</Value>
+    </Setting>
+    <Setting Name="QuickPollBase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://127.0.0.1:8000/api/quickpolls/</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

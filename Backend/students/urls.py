@@ -22,6 +22,7 @@ urlpatterns = [
     
     # Standalone quizzes
     path('quizzes/', StudentQuizListView.as_view(), name='student-quiz-list'),
+    ##path('login/', StudentLoginView.as_view(), name='student-login'),
     
     # Multi-quiz endpoints
     path('multi-quiz/', StudentMultiQuizListView.as_view(), name='student-multi-quiz-list'),

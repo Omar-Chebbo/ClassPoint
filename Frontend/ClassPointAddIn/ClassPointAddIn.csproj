@@ -93,7 +93,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
     <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <!--
     This section defines properties that are set when the "Release" configuration is selected.
@@ -124,19 +124,58 @@
   -->
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Parser, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d5f7376574c51ec, processorArchitecture=MSIL">
+      <HintPath>packages\ClosedXML.Parser.2.0.0\lib\netstandard2.0\ClosedXML.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.Framework.3.1.1\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
+      <HintPath>packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -212,7 +251,37 @@
     <Compile Include="Api\Responses\LoginResponse.cs" />
     <Compile Include="Api\Responses\RegisterResponse.cs" />
     <Compile Include="Api\Service\IUserApiClient.cs" />
+    <Compile Include="Api\Service\QuickPollApiClient.cs" />
+    <Compile Include="Api\Service\StudentService.cs" />
     <Compile Include="Api\Service\UserApiClient.cs" />
+    <Compile Include="Views\AddStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddStudentForm.Designer.cs">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ControlToolbarOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ControlToolbarOverlay.Designer.cs">
+      <DependentUpon>ControlToolbarOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Prompt.cs" />
+    <Compile Include="Views\QuickPollResultsByNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StudentLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StudentVoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PickNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PickNameForm.Designer.cs">
+      <DependentUpon>PickNameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\Auth\AuthenticationService.cs" />
     <Compile Include="Users\Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -231,6 +300,28 @@
     <Compile Include="Views\LoginRibbon.Designer.cs">
       <DependentUpon>LoginRibbon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\PickNameOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PickNameOverlay.Designer.cs">
+      <DependentUpon>PickNameOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuickPollForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuickPollOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\QuickPollOverlay.Designer.cs">
+      <DependentUpon>QuickPollOverlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuickPollResultForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\QuickPollResultForm.Designer.cs">
+      <DependentUpon>QuickPollResultForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WindowWrapper.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -247,6 +338,10 @@
     <EmbeddedResource Include="Views\LoginRibbon.resx">
       <DependentUpon>LoginRibbon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\PickNameForm.resx">
+      <DependentUpon>PickNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="ClassPointAddIn_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -256,6 +351,7 @@
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ThisAddIn.cs">
       <SubType>Code</SubType>
@@ -303,7 +399,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="PowerPoint" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="PowerPoint" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\PowerPoint\InstallRoot\Path#powerpnt.exe" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
         <Host Name="PowerPoint" GeneratedCodeNamespace="ClassPointAddIn" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" PublishedHash="EE3F85D7EA15ACD7613816EB192676CCC7CF8567" />
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" PublishedHash="EE3F85D7EA15ACD7613816EB192676CCC7CF8567" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>
